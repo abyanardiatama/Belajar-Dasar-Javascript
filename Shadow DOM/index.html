@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Shadow DOM Basic Usage</title>
+  <style>
+    body{
+        padding: 15px;
+    }
+    h1 {
+        color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ini merupakan konten yang berada di Document tree</h1>
+  <script>
+    // Shadow Host
+    const divElement = document.createElement('div');
+    
+    // element yang berada di dalam Shadow DOM
+    const headingElement = document.createElement('h1');
+    headingElement.innerText = 'Ini merupakan konten di dalam shadow DOM';
+    
+    // Melampirkan shadow root pada shadow host
+    // Mengatur mode shadow dengan nilai open
+    const shadowRoot = divElement.attachShadow({mode: 'open'});
+    
+    // Memasukkan element heading ke dalam shadow root
+    shadowRoot.appendChild(headingElement);
+    
+    // Memasukkan elemen shadow host ke regular DOM
+    document.body.appendChild(divElement);
+
+    // menetapkan styling pada Shadow DOM
+    shadowRoot.innerHTML += `
+    <style>
+        h1 {
+        color: green;
+        }
+    </style>
+    `;
+
+  </script>
+</body>
+</html>
