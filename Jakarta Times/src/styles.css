@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: bisque;
+    color: dimgrey;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  nav {
+    background-color: dimgrey;
+    color: #dddddd;
+    padding: 10px;
+  }
+  
+  nav a {
+    background-color: dimgrey;
+    color: #ffffff;
+    padding: 4px;
+    text-decoration: none;
+  }
+  nav a:hover {
+    background-color: #ffffff;
+    color: dimgrey;
+  }
+  
+  article {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  footer {
+    text-align: center;
+  }
+  
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .main-section {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .main-content {
+    flex: 3 !important;
+  }
+  .sidebar {
+    flex: 1;
+  }
+  
+  /*For Desktop*/
+  @media (min-width: 601px) {
+    .menu-button {
+      display: none;
+    }
+  }
+  
+  /*For Mobile*/
+  @media (max-width: 600px) {
+    .main-section {
+      flex-direction: column;
+    }
+  
+    .menu-button {
+      position: fixed;
+      top: 0;
+      background-color: ghostwhite;
+      padding: 10px;
+      color: black;
+      cursor: pointer;
+      z-index: 10001;
+    }
+  
+    nav {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      padding: 50px 0;
+      left: -200px;
+      width: 200px;
+      height: 100%;
+      transition: left 0.4ms;
+    }
+  
+    body.menu-open nav {
+      left: 0;
+    }
+  
+    nav a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+  
